@@ -10,7 +10,7 @@ from tkinter import *
 
 root = Tk()
 
-root.title("Welcome") #the name of the window
+root.title("Auto Insta") #the name of the window
 
 root.geometry("1280x720")  #just to give a size
 
@@ -92,12 +92,24 @@ class bot:
 lbl1 = Label(root, text = "Enter your username:   ")
 lbl1.grid()
 
-username = Entry(root, width = 10)  #this is how to take the text 
+username = Entry(root, width = 10)  
 username.grid(column =1, row =0)
 
+lbl2 = Label(root, text = "Enter your password:   ")
+lbl2.grid(column=0, row=1)
 
-# username = input("Enter your username ")
-# password = input("Enter your password ")
+password = Entry(root, width = 10)  
+password.grid(column =1, row =1)
+
+def clicked():
+    
+    return password, username
+
+btn = Button(root, text = "Enter", fg = "blue", bg = "black", command=clicked)
+btn.grid(column = 0, row = 2)
+
+username1 = input("Enter your username ")
+password2 = input("Enter your password ")
 
 
 
