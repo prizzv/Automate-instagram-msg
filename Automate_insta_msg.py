@@ -34,16 +34,20 @@ class bot:
         enter_password.send_keys(self.password)
 
         enter_password.send_keys(Keys.RETURN)
-        time.sleep(4)
+        time.sleep(5)
+
+        # turn off save password popup
+        self.bot.find_element_by_xpath('/html/body/div[1]/section/main/div/div/div/div/button').click()
+        time.sleep(1)
 
         # turn on notifications popup
-        self.bot.find_element_by_xpath('/html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div/div[3]/button[2]').click()  
-                            # /html/body/div[5]/div/div/div/div[3]/button[2]   xpath for not now        
+        self.bot.find_element_by_xpath('/html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div/div[3]/button[2]').click()
+                            # /html/body/div[5]/div/div/div/div[3]/button[2]   xpath for not now
 
                             # /html/body/div[5]/div/div/div/div[3]/button[1]   xpath for turn on
         time.sleep(1)
 
-        # the anchor element has to be selected and not just the svg           
+        # the anchor element has to be selected and not just the svg
         x_mesenger ='/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/section/nav/div[2]/div/div/div[3]/div/div[2]/a'             #  mesenger xpath
         # x_DM = '//*[@id="react-root"]/section/div/div[1]/div/div[3]/div/div[2]/a/svg'                  #  dm xpaths this is the old instagram xpath 
         self.bot.find_element_by_xpath(x_mesenger).click()   # depending on the account choose xpaths default/NewUser is of DM xpath            
@@ -65,11 +69,11 @@ class bot:
 
         # click on next
         self.bot.find_element_by_xpath('/html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div[1]/div/div[3]/div/button').click()
-        time.sleep(1)
+        time.sleep(2)
 
         # click on message area
         send = self.bot.find_element_by_xpath('/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div/section/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea')
-        
+
         for j in range(number):  # to send a msg a number of times
                 send.send_keys(self.message)
                 # time.sleep(1)
